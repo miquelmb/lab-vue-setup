@@ -28,11 +28,23 @@
             <h2 v-for="(person, index) in iteration4data" v-bind:key="person">
             {{ index +1 }}- {{ person.shortName }}. Job: {{person.job}} - {{person.hoursPerDay}} per day</h2>
         </div>
+
+        <br>
+
+        <div :style="styleBackground" id="-lab2-iteration5">With this color you can see me!</div>
+
+        <div id="lab2-bonus-iteration5">
+            <button v-on:click="changeBackground()">Change above div color</button>
+        </div>
+
+        <br>
     </div>
     
 </template>
 
 <script>
+// import { builtinModules } from 'module'
+
 
 
 export default {
@@ -58,8 +70,14 @@ export default {
                 shortName: "Phil",
                 job: "Front-End Dev",
                 hoursPerDay: "10hrs"
-                },
-            ]
+                }
+            ],
+
+            styleBackground: {
+                backgroundColor: "#2c3e50",
+            }
+
+        
         }
     },
     methods: {
@@ -69,6 +87,10 @@ export default {
 
         jsOperation() {
             return 2**4
+        },
+
+        changeBackground() {
+            this.styleBackground.backgroundColor = "lightgreen"
         }
     }
 }
